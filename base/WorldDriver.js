@@ -6,6 +6,7 @@ import BrowserDriverFactory from './BrowserDriverFactory.js';
 class WorldDriver {
   constructor({ log, attach, parameters }) {
     this.driver = null;
+    this.pages = null;
 
     this.log = log;
     this.attach = attach;
