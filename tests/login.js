@@ -12,7 +12,7 @@ import {
 
 
 When('I open google.com website', async function () {
-  await this.getDriver().get('https://www.google.com/');
+  await this.driver.get('https://www.google.com/');
 });
 
 Then('I enter any information into search field', async function () {
@@ -25,7 +25,7 @@ Then('I enter any information into search field', async function () {
 });
 
 Then('I see search results', async function () {
-  const searchField = await this.getDriver().findElement(
+  const searchField = await this.driver.findElement(
     By.name('q')
   );
 
@@ -36,12 +36,12 @@ Then('I see search results', async function () {
     10000
   );
 
-  const results = await this.getDriver().wait(
+  const results = await this.driver.wait(
     until.elementLocated(By.id('search')),
     10000
   );
 
-  await this.getDriver().wait(
+  await this.driver.wait(
     until.elementIsVisible(results),
     10000
   );

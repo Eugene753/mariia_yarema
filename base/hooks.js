@@ -3,7 +3,6 @@ import {
   After
 } from '@cucumber/cucumber';
 
-import PageInitializer from '../pageInitializer/PageInitializer.js';
 
 Before(async function (scenario) {
   this.scenario = scenario;
@@ -14,8 +13,6 @@ Before(async function (scenario) {
   );
 
   await this.setUp();
-
-  this.pages = new PageInitializer(this.getDriver());
 });
 
 After(async function () {

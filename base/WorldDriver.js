@@ -2,6 +2,7 @@ import { setWorldConstructor } from '@cucumber/cucumber';
 import 'dotenv/config';
 
 import BrowserDriverFactory from './BrowserDriverFactory.js';
+import PageInitializer from '../pageInitializer/PageInitializer.js';
 
 class WorldDriver {
   constructor({ log, attach, parameters }) {
@@ -11,10 +12,6 @@ class WorldDriver {
     this.log = log;
     this.attach = attach;
     this.parameters = parameters;
-  }
-
-  getDriver() {
-    return this.driver;
   }
 
   async setUp() {
@@ -38,6 +35,8 @@ class WorldDriver {
           `Unsupported environment: ${environment}`
         );
     }
+
+    this.pages = new PageInitializer(this.driver);
 
     await this.driver.manage().window().maximize();
   }
