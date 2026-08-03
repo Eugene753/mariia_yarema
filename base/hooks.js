@@ -7,11 +7,6 @@ import {
 Before(async function (scenario) {
   this.scenario = scenario;
 
-  console.log(
-    'World constructor:',
-    this.constructor.name
-  );
-
   await this.setUp();
 });
 

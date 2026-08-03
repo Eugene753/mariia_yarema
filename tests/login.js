@@ -12,37 +12,9 @@ import {
 
 
 When('I open google.com website', async function () {
-  await this.driver.get('https://www.google.com/');
+  await this.driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 });
 
 Then('I enter any information into search field', async function () {
-  const searchField = await this.getDriver().wait(
-    until.elementLocated(By.name('q')),
-    10000
-  );
-
-  await searchField.sendKeys('Movie');
-});
-
-Then('I see search results', async function () {
-  const searchField = await this.driver.findElement(
-    By.name('q')
-  );
-
-  await searchField.sendKeys(Key.ENTER);
-
-  await this.getDriver().wait(
-    until.urlContains('/search'),
-    10000
-  );
-
-  const results = await this.driver.wait(
-    until.elementLocated(By.id('search')),
-    10000
-  );
-
-  await this.driver.wait(
-    until.elementIsVisible(results),
-    10000
-  );
+  await this.pages.loginPage.login();
 });

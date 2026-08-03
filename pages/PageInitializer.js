@@ -1,7 +1,7 @@
-import DashboardPage from "./LoginPage";
+import LoginPage from "./LoginPage.js";
 
 export default class PageInitializer {
     constructor(driver) {
-        this.dashboardPage = new DashboardPage(driver);
+        this.loginPage = new LoginPage(driver);
     }
 }

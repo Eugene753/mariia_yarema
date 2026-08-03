@@ -2,7 +2,7 @@ import { setWorldConstructor } from '@cucumber/cucumber';
 import 'dotenv/config';
 
 import BrowserDriverFactory from './BrowserDriverFactory.js';
-import PageInitializer from '../pageInitializer/PageInitializer.js';
+import PageInitializer from '../pages/PageInitializer.js';
 
 class WorldDriver {
   constructor({ log, attach, parameters }) {
@@ -36,19 +36,20 @@ class WorldDriver {
         );
     }
 
-    this.pages = new PageInitializer(this.driver);
 
     await this.driver.manage().window().maximize();
+
+     this.pages = new PageInitializer(this.driver);
   }
 
-  async tearDown() {
+   async tearDown() {
     this.log('Closing browser');
 
     if (this.driver) {
       await this.driver.quit();
       this.driver = null;
     }
-  }
+  } 
 }
 
 setWorldConstructor(WorldDriver);
