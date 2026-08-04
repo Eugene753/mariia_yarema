@@ -1,8 +1,6 @@
-import {
-  Before,
-  After
-} from '@cucumber/cucumber';
+import { Before, After, setDefaultTimeout} from "@cucumber/cucumber";
 
+setDefaultTimeout(30000);
 
 Before(async function (scenario) {
   this.scenario = scenario;
@@ -11,5 +9,6 @@ Before(async function (scenario) {
 });
 
 After(async function () {
+  //await this.driver.sleep(5000); // Keep browser open for 5 seconds
   await this.tearDown();
 });

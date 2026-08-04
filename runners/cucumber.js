@@ -1,13 +1,12 @@
 export default {
-  import: [
-    'base/WorldDriver.js',
-    'base/hooks.js',
-    'tests/**/*.js'
-  ],
+  import: ["base/WorldDriver.js", "base/hooks.js", "tests/*.js"],
 
   paths: [
-    'features/**/*.feature'
+    "features/**/*.feature",
+    //"features/test.feature",
   ],
 
-  dryRun: false
+  dryRun: false,
 };
+
+
